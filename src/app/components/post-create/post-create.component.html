@@ -1,10 +1,11 @@
 <mat-card>
-    <!-- <textarea name="post" id="" cols="30" rows="6" [(ngModel)]="enteredValue"></textarea> -->
+    <mat-form-field>
+        <input matInput type="text" placeholder="Title" [(ngModel)]="enteredTitle">
+    </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Post</mat-label>
-        <textarea matInput placeholder="Post something..." [(ngModel)]="enteredValue"></textarea>
+        <textarea matInput placeholder="Post something..." [(ngModel)]="enteredContent"></textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="createPost()">Create Post</button>
+    <button mat-raised-button color="primary" (click)="onCreatePost()">Create Post</button>
 </mat-card>
 <hr>
-<posts></posts>

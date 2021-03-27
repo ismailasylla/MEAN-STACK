@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'posts',
@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
   //   {title:'Second Post', content: 'Second post Content'},
   //   {title:'Third Post', content: 'Third post Content'},
   // ]
-  posts = [];
+  @Input() posts = [];
   constructor() { }
 
   ngOnInit(): void {

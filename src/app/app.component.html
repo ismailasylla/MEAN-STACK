@@ -1,6 +1,7 @@
 <header></header>
 <div class="container mt-5">
-  <post-create></post-create>
+  <post-create (postCreated)="onPostCreated($event)"></post-create>
+  <posts [posts]="storedPosts"></posts>
 </div>
 
 <div class="container">
