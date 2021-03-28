@@ -1,11 +1,15 @@
 <mat-card>
-    <mat-form-field>
-        <input matInput type="text" placeholder="Title" [(ngModel)]="enteredTitle">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label>Post</mat-label>
-        <textarea matInput placeholder="Post something..." [(ngModel)]="enteredContent"></textarea>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="onCreatePost()">Create Post</button>
+    <form (submit)="onCreatePost(postForm)" #postForm="ngForm">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Title" ngModel name="title" required #title="ngModel">
+            <mat-error *ngIf="title.invalid">Please this field is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Post</mat-label>
+            <textarea matInput placeholder="Post something..." ngModel name="content" required
+                #content="ngModel"></textarea>
+            <mat-error *ngIf="content.invalid">Please this field is required.</mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Create Post</button>
+    </form>
 </mat-card>
-<hr>
