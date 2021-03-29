@@ -10,8 +10,9 @@ import { Post } from './post.model';
 })
 export class PostsComponent implements OnInit, OnDestroy {
   posts : Post[] = [];
-  private postsSub : Subscription;
+  private postsSub!: Subscription;
   constructor(public postsService : PostsService ) { }
+
 
   ngOnInit(): void {
      this.posts = this.postsService.getPosts();
@@ -21,8 +22,8 @@ export class PostsComponent implements OnInit, OnDestroy {
       })
   }
 
-  OnDestroy (){
-    this.postsSub.unsubscribe();
+   ngOnDestroy(): void {
+     this.postsSub.unsubscribe();
   }
 
 }
