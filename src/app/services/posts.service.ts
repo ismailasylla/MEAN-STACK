@@ -12,7 +12,7 @@ export class PostsService {
   private postUpdated = new Subject<Post[]>();
 
   getPosts() {
-    this.http.get<{message: string, posts: Post[]}>('http://localhost:3000/api/posts')
+   return this.http.get<{message: string, posts: Post[]}>('http://localhost:3000/api/posts')
       .subscribe((postData)=>{
         this.posts = postData.posts;
         this.postUpdated.next([...this.posts])
@@ -29,6 +29,7 @@ export class PostsService {
         console.log(responseData.message)
         this.posts.push(post);
         this.postUpdated.next([...this.posts])
+        return
     })
     console.log(post)
   }
